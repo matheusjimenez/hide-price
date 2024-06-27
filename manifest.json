@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Hide Price",
+    "description": "Hide all prices on the page",
+    "version": "1.1",
+    "author": "Jimenezshow",
+    "icons": {
+        "128": "images/hide-price.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs",
+        "webNavigation",
+        "webRequest"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": "sandbox allow-scripts; script-src 'self'; object-src 'self';"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*"
+            ]
+        }
+    ]
+}
